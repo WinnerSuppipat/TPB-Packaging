@@ -23,18 +23,34 @@ const mime = {
 };
 
 const server = http.createServer((req, res) => {
-  let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
+  const urlPath = req.url.split('?')[0];
+  const filePath = path.join(__dirname, urlPath === '/' ? 'index.html' : urlPath);
   const ext = path.extname(filePath);
   const contentType = mime[ext] || 'application/octet-stream';
 
   fs.readFile(filePath, (err, data) => {
-    if (err) {
-      res.writeHead(404);
-      res.end('Not found');
+    if (!err) {
+      res.writeHead(200, { 'Content-Type': contentType });
+      res.end(data);
       return;
     }
-    res.writeHead(200, { 'Content-Type': contentType });
-    res.end(data);
+
+    // GitHub Pages-style fallback: extensionless URL -> try appending .html
+    if (!ext) {
+      fs.readFile(filePath + '.html', (err2, data2) => {
+        if (err2) {
+          res.writeHead(404);
+          res.end('Not found');
+          return;
+        }
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(data2);
+      });
+      return;
+    }
+
+    res.writeHead(404);
+    res.end('Not found');
   });
 });
 
