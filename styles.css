@@ -811,6 +811,28 @@ footer { background: var(--dark); padding: 72px 28px 32px; }
   .tl-dot { left: -36px; }
 }
 
+/* ── LEGAL CONTENT (terms / privacy pages) ── */
+.legal-wrap { max-width: 760px; margin: 0 auto; }
+.legal-updated {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .8rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--mid);
+  margin-bottom: 48px;
+}
+.legal-wrap h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.5rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: -.005em; color: var(--dark);
+  margin-top: 48px; margin-bottom: 16px;
+}
+.legal-wrap h2:first-of-type { margin-top: 0; }
+.legal-wrap p { font-size: 1rem; line-height: 1.75; color: var(--mid); margin-bottom: 16px; }
+.legal-wrap ul { padding-left: 22px; margin: 0 0 16px; }
+.legal-wrap li { font-size: 1rem; line-height: 1.75; color: var(--mid); margin-bottom: 8px; list-style: disc; }
+.legal-wrap strong { color: var(--dark); font-weight: 600; }
+.legal-wrap a { color: var(--dark); text-decoration: underline; text-underline-offset: 2px; }
+.legal-wrap a:hover { color: var(--y2); }
+
 #mobile-nav { display: none; }
 #ham { display: none; }
 @media (max-width: 768px) {
