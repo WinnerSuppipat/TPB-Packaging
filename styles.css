@@ -818,7 +818,7 @@ footer { background: var(--dark); padding: 72px 28px 32px; }
   #ham { display: block; }
   #mobile-nav.open { display: block; }
   .nav-inner { height: 72px; }
-  .nav-logo { height: 42px; }
+  .nav-logo { height: 60px; }
   #hero { padding-top: 72px; }
   .hero-inner { min-height: calc(100vh - 72px); }
   .page-hero { padding-top: 168px; }
