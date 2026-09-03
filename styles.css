@@ -575,9 +575,9 @@ img { display: block; max-width: 100%; }
 }
 .flute-wave-row + .flute-wave-row { border-top: 1px solid rgba(255,255,255,.1); }
 
-/* ── PRODUCT TYPE CARDS (products — RSC / die-cut / printed / insert) ── */
+/* ── PRODUCT TYPE CARDS (products — RSC / die-cut / printed / insert / special / handle) ── */
 .ptype-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid; grid-template-columns: repeat(6, 1fr);
   gap: 20px; margin-top: 56px;
 }
 
@@ -618,6 +618,34 @@ img { display: block; max-width: 100%; }
   font-size: .68rem; font-weight: 700; letter-spacing: .1em;
   text-transform: uppercase; color: var(--dark);
   background: var(--bg); padding: 4px 10px;
+}
+
+/* ── WORK-SAMPLE SHOWCASE (products — what we've done) ── */
+.showcase-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px; margin-top: 56px;
+}
+.showcase-card { position: relative; overflow: hidden; aspect-ratio: 4/5; }
+.showcase-card img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .5s cubic-bezier(.16,1,.3,1);
+}
+.showcase-card:hover img { transform: scale(1.06); }
+.showcase-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.78) 0%, rgba(0,0,0,.15) 55%, transparent 100%);
+  mix-blend-mode: normal;
+}
+.showcase-tag {
+  position: absolute; left: 20px; bottom: 20px; right: 20px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.05rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .04em; color: #fff;
+}
+.showcase-tag small {
+  display: block; font-family: 'Barlow', sans-serif; font-weight: 400;
+  font-size: .78rem; letter-spacing: 0; text-transform: none;
+  color: rgba(255,255,255,.6); margin-top: 4px;
 }
 
 /* Custom Printing — overlapping CMYK-style circles */
@@ -757,7 +785,7 @@ footer { background: var(--dark); padding: 72px 28px 32px; }
   .industry-grid { grid-template-columns: 1fr 1fr; }
   .grade-grid { grid-template-columns: repeat(3, 1fr); }
   .flute-grid { grid-template-columns: repeat(3, 1fr); }
-  .ptype-grid { grid-template-columns: repeat(2, 1fr); }
+  .ptype-grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 768px) {
   .history-track { display: none; }
@@ -770,6 +798,7 @@ footer { background: var(--dark); padding: 72px 28px 32px; }
   .industry-grid { grid-template-columns: 1fr; }
   .grade-grid { grid-template-columns: repeat(2, 1fr); }
   .flute-grid { grid-template-columns: repeat(2, 1fr); }
+  .ptype-grid { grid-template-columns: repeat(2, 1fr); }
   .vision-panel { padding: 44px 28px; }
   .box3d { width: 130px; height: 130px; }
   .face { width: 130px; height: 130px; }
