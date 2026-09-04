@@ -580,6 +580,13 @@ img { display: block; max-width: 100%; }
   display: grid; grid-template-columns: repeat(4, 1fr);
   gap: 20px; margin-top: 56px;
 }
+/* these use real illustrated PNGs (more detail than the simple line icons
+   elsewhere), so give the tile more room — scoped so it doesn't touch the
+   shared .flute-profile height used by Flute Types */
+.ptype-grid .flute-profile { height: 160px; }
+.ptype-grid .flute-profile img {
+  max-width: 82%; max-height: 78%; object-fit: contain;
+}
 
 /* ── GRADE CARDS (products — liner grades / medium grades) ── */
 .grade-grid {
