@@ -795,7 +795,7 @@ footer { background: var(--dark); padding: 72px 28px 32px; }
   .flute-grid { grid-template-columns: repeat(2, 1fr); }
   .ptype-grid { grid-template-columns: repeat(2, 1fr); }
   .done-gallery { grid-template-columns: repeat(2, 1fr); }
-  .done-item.wide { grid-column: span 2; aspect-ratio: 16/9; }
+  .done-item.wide { grid-column: span 1; aspect-ratio: 1/1; }
   .vision-panel { padding: 44px 28px; }
   .box3d { width: 130px; height: 130px; }
   .face { width: 130px; height: 130px; }
