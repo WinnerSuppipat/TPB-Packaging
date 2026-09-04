@@ -627,33 +627,19 @@ img { display: block; max-width: 100%; }
   background: var(--bg); padding: 4px 10px;
 }
 
-/* ── WORK-SAMPLE SHOWCASE (products — what we've done) ── */
-.showcase-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px; margin-top: 56px;
+/* ── WORK-SAMPLE GALLERY (products — what we've done) ── */
+.done-gallery {
+  display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-flow: dense;
+  gap: 20px; margin-top: 56px;
 }
-.showcase-card { position: relative; overflow: hidden; aspect-ratio: 4/5; }
-.showcase-card img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform .5s cubic-bezier(.16,1,.3,1);
+.done-item {
+  aspect-ratio: 1/1; background: #fff; border: 1px solid rgba(0,0,0,.08);
+  display: flex; align-items: center; justify-content: center; padding: 20px;
+  transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s;
 }
-.showcase-card:hover img { transform: scale(1.06); }
-.showcase-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,.78) 0%, rgba(0,0,0,.15) 55%, transparent 100%);
-  mix-blend-mode: normal;
-}
-.showcase-tag {
-  position: absolute; left: 20px; bottom: 20px; right: 20px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1.05rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: .04em; color: #fff;
-}
-.showcase-tag small {
-  display: block; font-family: 'Barlow', sans-serif; font-weight: 400;
-  font-size: .78rem; letter-spacing: 0; text-transform: none;
-  color: rgba(255,255,255,.6); margin-top: 4px;
-}
+.done-item:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,.08); }
+.done-item img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.done-item.wide { grid-column: span 2; aspect-ratio: 21/10; }
 
 /* Custom Printing — overlapping CMYK-style circles */
 .print-graphic { position: relative; width: 180px; height: 180px; }
@@ -793,6 +779,7 @@ footer { background: var(--dark); padding: 72px 28px 32px; }
   .grade-grid { grid-template-columns: repeat(3, 1fr); }
   .flute-grid { grid-template-columns: repeat(3, 1fr); }
   .ptype-grid { grid-template-columns: repeat(2, 1fr); }
+  .done-gallery { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 768px) {
   .history-track { display: none; }
@@ -806,6 +793,8 @@ footer { background: var(--dark); padding: 72px 28px 32px; }
   .grade-grid { grid-template-columns: repeat(2, 1fr); }
   .flute-grid { grid-template-columns: repeat(2, 1fr); }
   .ptype-grid { grid-template-columns: repeat(2, 1fr); }
+  .done-gallery { grid-template-columns: repeat(2, 1fr); }
+  .done-item.wide { grid-column: span 2; aspect-ratio: 16/9; }
   .vision-panel { padding: 44px 28px; }
   .box3d { width: 130px; height: 130px; }
   .face { width: 130px; height: 130px; }
