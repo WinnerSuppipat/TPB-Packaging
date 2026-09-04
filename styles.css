@@ -635,10 +635,11 @@ img { display: block; max-width: 100%; }
 .done-item {
   aspect-ratio: 1/1; background: #fff; border: 1px solid rgba(0,0,0,.08);
   display: flex; align-items: center; justify-content: center; padding: 20px;
+  min-width: 0; min-height: 0;
   transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s;
 }
 .done-item:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,.08); }
-.done-item img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.done-item img { max-width: 100%; max-height: 100%; min-width: 0; object-fit: contain; }
 .done-item.wide { grid-column: span 2; aspect-ratio: 21/10; }
 
 /* Custom Printing — overlapping CMYK-style circles */
