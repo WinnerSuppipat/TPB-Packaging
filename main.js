@@ -26,15 +26,68 @@ document.querySelectorAll('#mobile-nav a').forEach(a => {
   a.addEventListener('click', () => document.getElementById('mobile-nav').classList.remove('open'));
 });
 
-// Contact form — placeholder submit handler
+// Contact form — validate, then submit to Web3Forms
+function showFormPopup(message) {
+  var existing = document.querySelector('.form-popup-overlay');
+  if (existing) existing.remove();
+
+  var overlay = document.createElement('div');
+  overlay.className = 'form-popup-overlay';
+  overlay.innerHTML =
+    '<div class="form-popup">' +
+      '<p>' + message + '</p>' +
+      '<button type="button" class="btn-y">Got it</button>' +
+    '</div>';
+  document.body.appendChild(overlay);
+  requestAnimationFrame(function () { overlay.classList.add('visible'); });
+
+  function close() {
+    overlay.classList.remove('visible');
+    setTimeout(function () { overlay.remove(); }, 300);
+  }
+  overlay.querySelector('button').addEventListener('click', close);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+}
+
 function handleForm(e) {
   e.preventDefault();
-  document.querySelector('.form-wrap').innerHTML = `
-    <div style="text-align:center;padding:40px 0;">
-      <div style="width:56px;height:56px;background:var(--y);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-      </div>
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;text-transform:uppercase;color:var(--dark);margin-bottom:10px;">Request Received</div>
-      <p style="color:var(--mid);line-height:1.65;font-size:.95rem;">Thanks for reaching out — this is a placeholder confirmation. We'll be in touch shortly once the form is wired up.</p>
-    </div>`;
+  var form = e.target;
+
+  if (!form.checkValidity()) {
+    showFormPopup('Please complete every field before submitting.');
+    return;
+  }
+
+  var submitBtn = form.querySelector('button[type="submit"]');
+  var originalText = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending…';
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify(Object.fromEntries(new FormData(form)))
+  })
+    .then(function (res) { return res.json(); })
+    .then(function (result) {
+      if (result.success) {
+        document.querySelector('.form-wrap').innerHTML = `
+          <div style="text-align:center;padding:40px 0;">
+            <div style="width:56px;height:56px;background:var(--y);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;text-transform:uppercase;color:var(--dark);margin-bottom:10px;">Request Received</div>
+            <p style="color:var(--mid);line-height:1.65;font-size:.95rem;">Thanks for reaching out — we've received your message and will be in touch shortly.</p>
+          </div>`;
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        showFormPopup('Something went wrong sending your message. Please email us directly at tpbi_mk@hotmail.com.');
+      }
+    })
+    .catch(function () {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+      showFormPopup('Something went wrong sending your message. Please email us directly at tpbi_mk@hotmail.com.');
+    });
 }

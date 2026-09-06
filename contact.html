@@ -133,30 +133,37 @@
       <div class="sr">
         <div class="form-wrap">
           <div class="form-h">Send Us a Message</div>
-          <form onsubmit="handleForm(event)">
+          <form onsubmit="handleForm(event)" novalidate>
+            <!-- Web3Forms: delivers to suppipata@gmail.com for now — swap access_key
+                 (a new key from a fresh web3forms.com signup) when switching to the
+                 company email later -->
+            <input type="hidden" name="access_key" value="23b721e0-ef60-4c4f-ba2d-d707f06572cf">
+            <input type="hidden" name="subject" value="New inquiry from TPB Packaging website">
+            <input type="hidden" name="from_name" value="TPB Packaging Website">
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
             <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;">
               <div>
                 <label class="fl">Full Name</label>
-                <input class="fi" type="text" placeholder="Your name">
+                <input class="fi" type="text" name="name" placeholder="Your name" required>
               </div>
               <div>
                 <label class="fl">Company</label>
-                <input class="fi" type="text" placeholder="Company name">
+                <input class="fi" type="text" name="company" placeholder="Company name" required>
               </div>
             </div>
             <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;">
               <div>
                 <label class="fl">Email</label>
-                <input class="fi" type="email" placeholder="you@company.com">
+                <input class="fi" type="email" name="email" placeholder="you@company.com" required>
               </div>
               <div>
                 <label class="fl">Phone</label>
-                <input class="fi" type="tel" placeholder="+66 ...">
+                <input class="fi" type="tel" name="phone" placeholder="+66 ..." required>
               </div>
             </div>
             <div style="margin-bottom:24px;">
               <label class="fl">Message</label>
-              <textarea class="fi" rows="4" placeholder="Tell us about your project, quantity, and any special requirements…"></textarea>
+              <textarea class="fi" rows="4" name="message" placeholder="Tell us about your project, quantity, and any special requirements…" required></textarea>
             </div>
             <button type="submit" class="btn-y" style="width:100%;border:none;cursor:pointer;font-size:.95rem;padding:14px 28px;">
               Send Message →
