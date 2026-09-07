@@ -747,6 +747,20 @@ footer { background: var(--dark); padding: 72px 28px 32px; }
 }
 .footer-link:hover { color: #fff; }
 .footer-link:focus-visible { outline: 2px solid var(--y); outline-offset: 2px; }
+@media (min-width: 641px) {
+  .footer-phones,
+  .footer-emails {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 16px;
+    margin-bottom: 12px;
+  }
+  .footer-phones .footer-link,
+  .footer-emails .footer-link {
+    margin-bottom: 0;
+  }
+}
 .soc-btn {
   width: 36px; height: 36px;
   border: 1px solid rgba(255,255,255,.15);
