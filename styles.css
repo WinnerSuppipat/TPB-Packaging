@@ -435,7 +435,7 @@ img { display: block; max-width: 100%; }
   font-size: 2.1rem; font-weight: 900; color: var(--dark);
   letter-spacing: -.01em; margin-bottom: 6px; line-height: 1;
 }
-.hist-card h4 {
+.hist-card h3 {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 1rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: .05em; color: var(--dark); margin-bottom: 6px;
@@ -467,7 +467,7 @@ img { display: block; max-width: 100%; }
   width: 84px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
 }
-.industry-tile h4 {
+.industry-tile h3 {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 1.1rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: .04em; color: #fff; line-height: 1.15;
@@ -495,7 +495,7 @@ img { display: block; max-width: 100%; }
   font-size: 1.6rem; font-weight: 900; color: var(--dark);
   letter-spacing: -.01em; margin-bottom: 8px;
 }
-.tl-item h4 {
+.tl-item h3 {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 1.1rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: .05em; color: var(--dark); margin-bottom: 8px;
@@ -509,7 +509,7 @@ img { display: block; max-width: 100%; }
 }
 .fcell { padding: 44px 36px; background: rgba(255,255,255,.02); transition: background .25s; }
 .fcell:hover { background: rgba(229,206,0,.045); }
-.fcell h4 {
+.fcell h3 {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 1.15rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: .06em;
@@ -562,7 +562,7 @@ img { display: block; max-width: 100%; }
 }
 .flute-profile svg { display: block; }
 .flute-body { padding: 20px 22px 22px; }
-.flute-body h4 {
+.flute-body h3 {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 1.05rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: .04em; color: var(--dark); margin-bottom: 0;
@@ -678,7 +678,7 @@ img { display: block; max-width: 100%; }
   padding: 28px 0; border-bottom: 1px solid rgba(0,0,0,.08);
 }
 .contact-card:last-child { border-bottom: none; }
-.contact-card h4 {
+.contact-card h3 {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: .95rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: .08em; color: var(--dark); margin-bottom: 6px;
