@@ -18,7 +18,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Barlow', 'Noto Sans Thai', sans-serif;
   background: #fff;
   color: var(--dark);
   overflow-x: hidden;
@@ -27,7 +27,7 @@ body {
 a { color: inherit; }
 img { display: block; max-width: 100%; }
 
-.font-disp { font-family: 'Barlow Condensed', sans-serif; }
+.font-disp { font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif; }
 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp {
@@ -87,7 +87,7 @@ img { display: block; max-width: 100%; }
 .nav-logo { height: 150px; width: auto; display: block; }
 
 .nav-link {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-weight: 600; font-size: .85rem;
   letter-spacing: .14em; text-transform: uppercase;
   color: rgba(255,255,255,.6);
@@ -104,8 +104,24 @@ img { display: block; max-width: 100%; }
 .nav-link.active { color: var(--y); }
 .nav-link.active::after { width: 100%; }
 
+.lang-toggle {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
+  font-weight: 600; font-size: .85rem;
+  letter-spacing: .1em; text-transform: uppercase;
+}
+.lang-toggle .lang-current { color: var(--y); }
+.lang-toggle .lang-sep { color: rgba(255,255,255,.3); }
+.lang-toggle .lang-link {
+  color: rgba(255,255,255,.6);
+  text-decoration: none;
+  transition: color .2s;
+}
+.lang-toggle .lang-link:hover { color: var(--y); }
+.lang-toggle .lang-link:focus-visible { outline: 2px solid var(--y); outline-offset: 2px; }
+
 .btn-y {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-weight: 700; font-size: .9rem;
   letter-spacing: .1em; text-transform: uppercase;
   background: var(--y); color: var(--dark);
@@ -121,7 +137,7 @@ img { display: block; max-width: 100%; }
 .btn-y:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 
 .btn-ghost {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-weight: 700; font-size: .9rem;
   letter-spacing: .1em; text-transform: uppercase;
   border: 2px solid rgba(255,255,255,.28);
@@ -157,7 +173,7 @@ img { display: block; max-width: 100%; }
 
 .ghost-text {
   position: absolute; bottom: -30px; left: -10px;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: clamp(100px, 18vw, 260px);
   font-weight: 900; line-height: 1;
   color: rgba(255,255,255,.025);
@@ -195,7 +211,7 @@ img { display: block; max-width: 100%; }
 
 .chip {
   display: inline-flex; align-items: center; gap: 8px;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: .72rem; font-weight: 600;
   letter-spacing: .14em; text-transform: uppercase;
   color: rgba(255,255,255,.55);
@@ -221,7 +237,7 @@ img { display: block; max-width: 100%; }
 }
 .page-hero-inner { max-width: 1320px; margin: 0 auto; position: relative; z-index: 1; }
 .page-hero h1 {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: clamp(44px, 6.5vw, 78px);
   font-weight: 900; text-transform: uppercase;
   line-height: .95; letter-spacing: -.025em;
@@ -242,13 +258,13 @@ img { display: block; max-width: 100%; }
   align-items: center; flex-wrap: wrap; gap: 32px;
 }
 .stat-num {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: 3rem; font-weight: 900;
   color: var(--dark); line-height: 1;
   letter-spacing: -.02em;
 }
 .stat-label {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: .75rem; font-weight: 600;
   letter-spacing: .16em; text-transform: uppercase;
   color: rgba(38,38,38,.65); margin-top: 4px;
@@ -261,7 +277,7 @@ img { display: block; max-width: 100%; }
 .eyebrow { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px; }
 .eyebrow-line { width: 32px; height: 2.5px; background: var(--y); flex-shrink: 0; }
 .eyebrow-text {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: .72rem; font-weight: 700;
   letter-spacing: .22em; text-transform: uppercase;
   color: var(--mid);
@@ -269,7 +285,7 @@ img { display: block; max-width: 100%; }
 .eyebrow-text.on-dark { color: var(--y); }
 
 .sec-h2 {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: clamp(38px, 5.5vw, 64px);
   font-weight: 900; text-transform: uppercase;
   letter-spacing: -.025em; line-height: .96;
@@ -319,7 +335,7 @@ img { display: block; max-width: 100%; }
 }
 
 .card-h {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: 1.3rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: .04em; margin-bottom: 10px;
 }
@@ -327,7 +343,7 @@ img { display: block; max-width: 100%; }
 
 .learn-more {
   display: inline-flex; align-items: center; gap: 8px;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-weight: 700; font-size: .8rem;
   letter-spacing: .1em; text-transform: uppercase;
   margin-top: 24px; text-decoration: none;
@@ -346,13 +362,13 @@ img { display: block; max-width: 100%; }
 .mv-cell { padding: 56px 48px; background: #fff; position: relative; }
 .mv-cell.dark { background: var(--slate); }
 .mv-num {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: .78rem; font-weight: 700; letter-spacing: .2em;
   text-transform: uppercase; color: var(--y); margin-bottom: 18px;
   display: block;
 }
 .mv-cell h3 {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: 2rem; font-weight: 800; text-transform: uppercase;
   letter-spacing: -.01em; margin-bottom: 16px; color: var(--dark);
 }
@@ -376,7 +392,7 @@ img { display: block; max-width: 100%; }
   pointer-events: none;
 }
 .vision-panel p {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: clamp(24px, 3.2vw, 36px);
   font-weight: 700; line-height: 1.3;
   letter-spacing: -.01em;
@@ -431,12 +447,12 @@ img { display: block; max-width: 100%; }
 .hist-node.hist-above .hist-card { bottom: calc(50% + 40px); }
 .hist-node.hist-below .hist-card { top: calc(50% + 40px); }
 .hist-year {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: 2.1rem; font-weight: 900; color: var(--dark);
   letter-spacing: -.01em; margin-bottom: 6px; line-height: 1;
 }
 .hist-card h3 {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: 1rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: .05em; color: var(--dark); margin-bottom: 6px;
 }
@@ -468,7 +484,7 @@ img { display: block; max-width: 100%; }
   display: flex; align-items: center; justify-content: center;
 }
 .industry-tile h3 {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: 1.1rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: .04em; color: #fff; line-height: 1.15;
   padding: 20px 24px; align-self: center;
@@ -491,12 +507,12 @@ img { display: block; max-width: 100%; }
   background: var(--bg); border: 3px solid var(--y);
 }
 .tl-year {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: 1.6rem; font-weight: 900; color: var(--dark);
   letter-spacing: -.01em; margin-bottom: 8px;
 }
 .tl-item h3 {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: 1.1rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: .05em; color: var(--dark); margin-bottom: 8px;
 }
@@ -510,7 +526,7 @@ img { display: block; max-width: 100%; }
 .fcell { padding: 44px 36px; background: rgba(255,255,255,.02); transition: background .25s; }
 .fcell:hover { background: rgba(229,206,0,.045); }
 .fcell h3 {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: 1.15rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: .06em;
   color: #fff; margin-bottom: 10px;
@@ -527,19 +543,19 @@ img { display: block; max-width: 100%; }
 }
 .spec-row.head {
   border-bottom: none; padding-bottom: 12px;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: .7rem; font-weight: 700; letter-spacing: .18em;
   text-transform: uppercase; color: var(--mid);
 }
 .spec-grade {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: 1.3rem; font-weight: 800; color: var(--dark);
   display: flex; align-items: center; gap: 12px;
 }
 .spec-swatch { width: 28px; height: 28px; flex-shrink: 0; border: 1px solid rgba(0,0,0,.12); }
 .spec-desc { font-size: .9rem; line-height: 1.6; color: var(--mid); }
 .spec-use {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: .78rem; font-weight: 700; letter-spacing: .06em;
   text-transform: uppercase; color: var(--dark);
 }
@@ -563,7 +579,7 @@ img { display: block; max-width: 100%; }
 .flute-profile svg { display: block; }
 .flute-body { padding: 20px 22px 22px; }
 .flute-body h3 {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: 1.05rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: .04em; color: var(--dark); margin-bottom: 0;
 }
@@ -608,20 +624,20 @@ img { display: block; max-width: 100%; }
   margin-bottom: 16px; flex-shrink: 0;
 }
 .grade-code {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: 1.3rem; font-weight: 800; letter-spacing: .02em;
   color: var(--dark); margin-bottom: 14px;
 }
 .grade-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 .grade-chip {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: .7rem; font-weight: 700; letter-spacing: .04em;
   color: var(--dark); background: var(--bg);
   padding: 5px 12px; border-radius: 20px;
 }
 .flute-spec {
   display: inline-block; margin-top: 12px;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: .68rem; font-weight: 700; letter-spacing: .1em;
   text-transform: uppercase; color: var(--dark);
   background: var(--bg); padding: 4px 10px;
@@ -679,7 +695,7 @@ img { display: block; max-width: 100%; }
 }
 .contact-card:last-child { border-bottom: none; }
 .contact-card h3 {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: .95rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: .08em; color: var(--dark); margin-bottom: 6px;
 }
@@ -701,14 +717,14 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 32px 80px rgba(0,0,0,.13), 0 8px 24px rgba(0,0,0,.06);
 }
 .form-h {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: 1.4rem; font-weight: 800;
   text-transform: uppercase; letter-spacing: .04em;
   color: var(--dark); margin-bottom: 28px;
 }
 label.fl {
   display: block;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: .72rem; font-weight: 700;
   letter-spacing: .14em; text-transform: uppercase;
   color: var(--mid); margin-bottom: 7px;
@@ -717,7 +733,7 @@ input.fi, select.fi, textarea.fi {
   width: 100%; padding: 12px 15px;
   border: 1.5px solid rgba(0,0,0,.1);
   background: var(--bg);
-  font-family: 'Barlow', sans-serif; font-size: .92rem;
+  font-family: 'Barlow', 'Noto Sans Thai', sans-serif; font-size: .92rem;
   color: var(--dark); outline: none;
   transition: border-color .2s;
   appearance: none; -webkit-appearance: none;
@@ -735,7 +751,7 @@ footer { background: var(--dark); padding: 72px 28px 32px; }
   gap: 48px; margin-bottom: 56px;
 }
 .footer-h {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: .72rem; font-weight: 700;
   letter-spacing: .2em; text-transform: uppercase;
   color: var(--y); margin-bottom: 20px;
@@ -820,13 +836,13 @@ footer { background: var(--dark); padding: 72px 28px 32px; }
 /* ── LEGAL CONTENT (terms / privacy pages) ── */
 .legal-wrap { max-width: 760px; margin: 0 auto; }
 .legal-updated {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: .8rem; font-weight: 700; letter-spacing: .08em;
   text-transform: uppercase; color: var(--mid);
   margin-bottom: 48px;
 }
 .legal-wrap h2 {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   font-size: 1.5rem; font-weight: 800; text-transform: uppercase;
   letter-spacing: -.005em; color: var(--dark);
   margin-top: 48px; margin-bottom: 16px;
@@ -873,7 +889,7 @@ footer { background: var(--dark); padding: 72px 28px 32px; }
 .cookie-banner-text a { color: var(--y); text-decoration: underline; text-underline-offset: 2px; }
 .cookie-banner-actions { display: flex; gap: 12px; flex-shrink: 0; }
 .cookie-banner-actions button {
-  border: none; font-family: 'Barlow Condensed', sans-serif;
+  border: none; font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif;
   cursor: pointer; padding: 10px 24px; font-size: .82rem;
 }
 .cookie-banner-actions .btn-ghost { border: 2px solid rgba(255,255,255,.28); background: none; }
@@ -904,3 +920,21 @@ footer { background: var(--dark); padding: 72px 28px 32px; }
   font-size: .95rem; line-height: 1.6; color: var(--dark); margin-bottom: 20px;
 }
 .form-popup button { border: none; cursor: pointer; padding: 12px 32px; font-size: .85rem; }
+
+/* ── THAI LOCALIZATION ──
+   Line-height only — font-size stays identical to the English pages.
+   Scoped to html[lang="th"] so English pages are completely unaffected. */
+html[lang="th"] .page-hero p { line-height: 1.9; }
+html[lang="th"] .sec-sub { line-height: 1.9; }
+html[lang="th"] .card-p { line-height: 1.85; }
+html[lang="th"] .mv-cell p { line-height: 1.95; }
+html[lang="th"] .hist-card p { line-height: 1.8; }
+html[lang="th"] .tl-item p { line-height: 1.9; }
+html[lang="th"] .fcell p { line-height: 1.85; }
+html[lang="th"] .spec-desc { line-height: 1.8; }
+html[lang="th"] .contact-card p,
+html[lang="th"] .contact-card a { line-height: 1.8; }
+html[lang="th"] .legal-wrap p,
+html[lang="th"] .legal-wrap li { line-height: 1.95; }
+html[lang="th"] .cookie-banner-text { line-height: 1.8; }
+html[lang="th"] .form-popup p { line-height: 1.8; }

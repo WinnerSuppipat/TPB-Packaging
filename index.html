@@ -12,6 +12,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./styles.css">
+<link rel="alternate" hreflang="en" href="https://www.tpbpackaging.com/">
+<link rel="alternate" hreflang="th" href="https://www.tpbpackaging.com/th/">
+<link rel="alternate" hreflang="x-default" href="https://www.tpbpackaging.com/">
 </head>
 <body>
 
@@ -27,7 +30,9 @@
       <a href="/about" class="nav-link">About</a>
       <a href="/products" class="nav-link">Products/Capabilities</a>
       <a href="/contact" class="nav-link">Contact</a>
-      <a href="/contact" class="btn-y" style="margin-left:4px;">Get a Quote</a>
+      <div class="lang-toggle" style="margin-left:4px;">
+        <span class="lang-current">EN</span><span class="lang-sep">|</span><a href="/th/" class="lang-link">ไทย</a>
+      </div>
     </div>
 
     <button id="ham" onclick="document.getElementById('mobile-nav').classList.toggle('open')"
@@ -43,7 +48,9 @@
     <a href="/about" class="nav-link" style="display:block;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);">About</a>
     <a href="/products" class="nav-link" style="display:block;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);">Products/Capabilities</a>
     <a href="/contact" class="nav-link" style="display:block;padding:14px 0;">Contact</a>
-    <a href="/contact" class="btn-y" style="margin-top:20px;display:inline-block;">Get a Quote</a>
+    <div class="lang-toggle" style="margin-top:20px;">
+      <span class="lang-current">EN</span><span class="lang-sep">|</span><a href="/th/" class="lang-link">ไทย</a>
+    </div>
   </div>
 </nav>
 

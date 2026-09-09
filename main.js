@@ -27,6 +27,25 @@ document.querySelectorAll('#mobile-nav a').forEach(a => {
 });
 
 // Contact form — validate, then submit to Web3Forms
+var isTH = document.documentElement.lang === 'th';
+var i18n = isTH
+  ? {
+      invalid: 'กรุณากรอกข้อมูลให้ครบทุกช่องก่อนส่ง',
+      sending: 'กำลังส่ง…',
+      successHeading: 'ได้รับคำขอของคุณแล้ว',
+      successBody: 'ขอบคุณที่ติดต่อเรา เราได้รับข้อความของคุณแล้ว และจะติดต่อกลับโดยเร็วที่สุด',
+      error: 'เกิดข้อผิดพลาดในการส่งข้อความของคุณ กรุณาส่งอีเมลถึงเราโดยตรงที่ tpbi_mk@hotmail.com',
+      gotIt: 'รับทราบ'
+    }
+  : {
+      invalid: 'Please complete every field before submitting.',
+      sending: 'Sending…',
+      successHeading: 'Request Received',
+      successBody: "Thanks for reaching out — we've received your message and will be in touch shortly.",
+      error: 'Something went wrong sending your message. Please email us directly at tpbi_mk@hotmail.com.',
+      gotIt: 'Got it'
+    };
+
 function showFormPopup(message) {
   var existing = document.querySelector('.form-popup-overlay');
   if (existing) existing.remove();
@@ -36,7 +55,7 @@ function showFormPopup(message) {
   overlay.innerHTML =
     '<div class="form-popup">' +
       '<p>' + message + '</p>' +
-      '<button type="button" class="btn-y">Got it</button>' +
+      '<button type="button" class="btn-y">' + i18n.gotIt + '</button>' +
     '</div>';
   document.body.appendChild(overlay);
   requestAnimationFrame(function () { overlay.classList.add('visible'); });
@@ -54,14 +73,14 @@ function handleForm(e) {
   var form = e.target;
 
   if (!form.checkValidity()) {
-    showFormPopup('Please complete every field before submitting.');
+    showFormPopup(i18n.invalid);
     return;
   }
 
   var submitBtn = form.querySelector('button[type="submit"]');
   var originalText = submitBtn.textContent;
   submitBtn.disabled = true;
-  submitBtn.textContent = 'Sending…';
+  submitBtn.textContent = i18n.sending;
 
   fetch('https://api.web3forms.com/submit', {
     method: 'POST',
@@ -76,18 +95,18 @@ function handleForm(e) {
             <div style="width:56px;height:56px;background:var(--y);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
-            <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;text-transform:uppercase;color:var(--dark);margin-bottom:10px;">Request Received</div>
-            <p style="color:var(--mid);line-height:1.65;font-size:.95rem;">Thanks for reaching out — we've received your message and will be in touch shortly.</p>
+            <div style="font-family:'Barlow Condensed','Noto Sans Thai',sans-serif;font-size:1.5rem;font-weight:800;text-transform:uppercase;color:var(--dark);margin-bottom:10px;">${i18n.successHeading}</div>
+            <p style="color:var(--mid);line-height:${isTH ? 1.85 : 1.65};font-size:.95rem;">${i18n.successBody}</p>
           </div>`;
       } else {
         submitBtn.disabled = false;
         submitBtn.textContent = originalText;
-        showFormPopup('Something went wrong sending your message. Please email us directly at tpbi_mk@hotmail.com.');
+        showFormPopup(i18n.error);
       }
     })
     .catch(function () {
       submitBtn.disabled = false;
       submitBtn.textContent = originalText;
-      showFormPopup('Something went wrong sending your message. Please email us directly at tpbi_mk@hotmail.com.');
+      showFormPopup(i18n.error);
     });
 }

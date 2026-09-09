@@ -27,14 +27,24 @@
   }
 
   function showBanner() {
+    var isTH = document.documentElement.lang === 'th';
+    var privacyHref = isTH ? '/th/privacy' : '/privacy';
+    var text = isTH
+      ? 'เราใช้คุกกี้เพื่อทำความเข้าใจปริมาณการเข้าชมเว็บไซต์ผ่าน Google Analytics ดูรายละเอียดเพิ่มเติมได้ที่'
+      : 'We use cookies to understand site traffic via Google Analytics. See our ';
+    var linkText = isTH ? 'นโยบายความเป็นส่วนตัวของเรา' : 'Privacy Policy';
+    var trailer = isTH ? '' : ' for details.';
+    var declineText = isTH ? 'ปฏิเสธ' : 'Decline';
+    var acceptText = isTH ? 'ยอมรับ' : 'Accept';
+
     var banner = document.createElement('div');
     banner.className = 'cookie-banner';
     banner.innerHTML =
-      '<p class="cookie-banner-text">We use cookies to understand site traffic via Google Analytics. See our ' +
-      '<a href="/privacy">Privacy Policy</a> for details.</p>' +
+      '<p class="cookie-banner-text">' + text +
+      '<a href="' + privacyHref + '">' + linkText + '</a>' + trailer + '</p>' +
       '<div class="cookie-banner-actions">' +
-      '<button type="button" class="btn-ghost" id="cookie-decline">Decline</button>' +
-      '<button type="button" class="btn-y" id="cookie-accept">Accept</button>' +
+      '<button type="button" class="btn-ghost" id="cookie-decline">' + declineText + '</button>' +
+      '<button type="button" class="btn-y" id="cookie-accept">' + acceptText + '</button>' +
       '</div>';
     document.body.appendChild(banner);
     requestAnimationFrame(function () { banner.classList.add('visible'); });
