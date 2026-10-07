@@ -34,7 +34,7 @@ var i18n = isTH
       sending: 'กำลังส่ง…',
       successHeading: 'ได้รับคำขอของคุณแล้ว',
       successBody: 'ขอบคุณที่ติดต่อเรา เราได้รับข้อความของคุณแล้ว และจะติดต่อกลับโดยเร็วที่สุด',
-      error: 'เกิดข้อผิดพลาดในการส่งข้อความของคุณ กรุณาส่งอีเมลถึงเราโดยตรงที่ tpbi_mk@hotmail.com',
+      error: 'เกิดข้อผิดพลาดในการส่งข้อความของคุณ กรุณาส่งอีเมลถึงเราโดยตรงที่ sales@tpbpackaging.com',
       gotIt: 'รับทราบ'
     }
   : {
@@ -42,7 +42,7 @@ var i18n = isTH
       sending: 'Sending…',
       successHeading: 'Request Received',
       successBody: "Thanks for reaching out — we've received your message and will be in touch shortly.",
-      error: 'Something went wrong sending your message. Please email us directly at tpbi_mk@hotmail.com.',
+      error: 'Something went wrong sending your message. Please email us directly at sales@tpbpackaging.com.',
       gotIt: 'Got it'
     };
 
