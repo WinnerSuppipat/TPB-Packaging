@@ -23,6 +23,14 @@ const mime = {
   '.woff2': 'font/woff2',
 };
 
+// GitHub Pages-style 404: serve the custom 404.html with a 404 status
+function notFound(res) {
+  fs.readFile(path.join(__dirname, '404.html'), (err, data) => {
+    res.writeHead(404, { 'Content-Type': 'text/html' });
+    res.end(err ? 'Not found' : data);
+  });
+}
+
 const server = http.createServer((req, res) => {
   const urlPath = req.url.split('?')[0];
   const resolvedPath = urlPath.endsWith('/') ? urlPath + 'index.html' : urlPath;
@@ -40,19 +48,14 @@ const server = http.createServer((req, res) => {
     // GitHub Pages-style fallback: extensionless URL -> try appending .html
     if (!ext) {
       fs.readFile(filePath + '.html', (err2, data2) => {
-        if (err2) {
-          res.writeHead(404);
-          res.end('Not found');
-          return;
-        }
+        if (err2) return notFound(res);
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.end(data2);
       });
       return;
     }
 
-    res.writeHead(404);
-    res.end('Not found');
+    notFound(res);
   });
 });
 
