@@ -8,9 +8,12 @@
 - If no reference image: design from scratch with high craft (see guardrails below).
 - Screenshot your output, compare against reference, fix mismatches, re-screenshot. Do at least 2 comparison rounds. Stop only when no visible differences remain or user says so.
 
+## Published Files
+- Only `docs/` is published (GitHub Pages source: `main` branch, `/docs` folder). Put every page, script, stylesheet and site image in `docs/`; keep tooling, notes and brand source files outside it.
+
 ## Local Server
 - **Always serve on localhost** — never screenshot a `file:///` URL.
-- Start the dev server: `node serve.mjs` (serves the project root at `http://localhost:3000`)
+- Start the dev server: `node serve.mjs` (serves `docs/` at `http://localhost:3000`)
 - `serve.mjs` lives in the project root. Start it in the background before taking any screenshots.
 - If the server is already running, do not start a second instance.
 
@@ -26,12 +29,12 @@
 
 ## Output Defaults
 - Single `index.html` file, all styles inline, unless user says otherwise
-- Tailwind CSS via CDN: `<script src="https://cdn.tailwindcss.com"></script>`
+- Tailwind CSS: compiled to `docs/tailwind.css` — run `npm run build:css` after adding Tailwind classes. Do not add the CDN script.
 - Placeholder images: `https://placehold.co/WIDTHxHEIGHT`
 - Mobile-first responsive
 
 ## Brand Assets
-- Always check the `brand_assets/` folder before designing. It may contain logos, color guides, style guides, or images.
+- Always check `docs/brand_asset/` (site images, logo) and `_originals/` (brand guidelines, unused originals) before designing.
 - If assets exist there, use them. Do not use placeholders where real assets are available.
 - If a logo is present, use it. If a color palette is defined, use those exact values — do not invent brand colors.
 

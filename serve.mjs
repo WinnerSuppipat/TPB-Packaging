@@ -4,6 +4,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+// docs/ is the GitHub Pages publishing folder — only files in it are public
+const siteRoot = path.join(__dirname, 'docs');
 const PORT = 3000;
 
 const mime = {
@@ -25,7 +27,7 @@ const mime = {
 
 // GitHub Pages-style 404: serve the custom 404.html with a 404 status
 function notFound(res) {
-  fs.readFile(path.join(__dirname, '404.html'), (err, data) => {
+  fs.readFile(path.join(siteRoot, '404.html'), (err, data) => {
     res.writeHead(404, { 'Content-Type': 'text/html' });
     res.end(err ? 'Not found' : data);
   });
@@ -34,7 +36,7 @@ function notFound(res) {
 const server = http.createServer((req, res) => {
   const urlPath = req.url.split('?')[0];
   const resolvedPath = urlPath.endsWith('/') ? urlPath + 'index.html' : urlPath;
-  const filePath = path.join(__dirname, resolvedPath);
+  const filePath = path.join(siteRoot, resolvedPath);
   const ext = path.extname(filePath);
   const contentType = mime[ext] || 'application/octet-stream';
 
