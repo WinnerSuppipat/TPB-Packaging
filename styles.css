@@ -26,6 +26,9 @@ body {
 
 a { color: inherit; }
 img { display: block; max-width: 100%; }
+/* <picture> only supplies WebP sources — keep it out of layout so the <img>
+   is still the flex item / sized child, exactly as before */
+picture { display: contents; }
 
 .font-disp { font-family: 'Barlow Condensed', 'Noto Sans Thai', sans-serif; }
 
@@ -601,6 +604,7 @@ img { display: block; max-width: 100%; }
    shared .flute-profile height used by Flute Types */
 .ptype-grid .flute-profile { height: 160px; }
 .ptype-grid .flute-profile img {
+  width: auto; /* ignore the width attribute — size only from max-width/max-height, as before */
   max-width: 82%; max-height: 78%; object-fit: contain;
 }
 
