@@ -39,13 +39,29 @@
 
     var banner = document.createElement('div');
     banner.className = 'cookie-banner';
-    banner.innerHTML =
-      '<p class="cookie-banner-text">' + text +
-      '<a href="' + privacyHref + '">' + linkText + '</a>' + trailer + '</p>' +
-      '<div class="cookie-banner-actions">' +
-      '<button type="button" class="btn-ghost" id="cookie-decline">' + declineText + '</button>' +
-      '<button type="button" class="btn-y" id="cookie-accept">' + acceptText + '</button>' +
-      '</div>';
+
+    var para = document.createElement('p');
+    para.className = 'cookie-banner-text';
+    var link = document.createElement('a');
+    link.href = privacyHref;
+    link.textContent = linkText;
+    para.append(text, link, trailer);
+
+    var actions = document.createElement('div');
+    actions.className = 'cookie-banner-actions';
+    var declineBtn = document.createElement('button');
+    declineBtn.type = 'button';
+    declineBtn.className = 'btn-ghost';
+    declineBtn.id = 'cookie-decline';
+    declineBtn.textContent = declineText;
+    var acceptBtn = document.createElement('button');
+    acceptBtn.type = 'button';
+    acceptBtn.className = 'btn-y';
+    acceptBtn.id = 'cookie-accept';
+    acceptBtn.textContent = acceptText;
+    actions.append(declineBtn, acceptBtn);
+
+    banner.append(para, actions);
     document.body.appendChild(banner);
     requestAnimationFrame(function () { banner.classList.add('visible'); });
 

@@ -21,6 +21,11 @@ window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
+// Mobile nav toggle
+document.getElementById('ham').addEventListener('click', () => {
+  document.getElementById('mobile-nav').classList.toggle('open');
+});
+
 // Mobile nav close on link click
 document.querySelectorAll('#mobile-nav a').forEach(a => {
   a.addEventListener('click', () => document.getElementById('mobile-nav').classList.remove('open'));
@@ -52,11 +57,16 @@ function showFormPopup(message) {
 
   var overlay = document.createElement('div');
   overlay.className = 'form-popup-overlay';
-  overlay.innerHTML =
-    '<div class="form-popup">' +
-      '<p>' + message + '</p>' +
-      '<button type="button" class="btn-y">' + i18n.gotIt + '</button>' +
-    '</div>';
+  var popup = document.createElement('div');
+  popup.className = 'form-popup';
+  var text = document.createElement('p');
+  text.textContent = message;
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'btn-y';
+  btn.textContent = i18n.gotIt;
+  popup.append(text, btn);
+  overlay.appendChild(popup);
   document.body.appendChild(overlay);
   requestAnimationFrame(function () { overlay.classList.add('visible'); });
 
@@ -110,3 +120,8 @@ function handleForm(e) {
       showFormPopup(i18n.error);
     });
 }
+
+// Contact form submit (bound here, not inline, so the CSP can block inline handlers)
+document.querySelectorAll('.form-wrap form').forEach(function (form) {
+  form.addEventListener('submit', handleForm);
+});

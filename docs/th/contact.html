@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-src https://maps.google.com https://www.google.com; form-action https://api.web3forms.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="/cookie-consent.js" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -90,7 +92,7 @@
       </div>
     </div>
 
-    <button id="ham" onclick="document.getElementById('mobile-nav').classList.toggle('open')"
+    <button id="ham"
       aria-label="Toggle menu" style="background:none;border:none;cursor:pointer;padding:8px;">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2">
         <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
@@ -193,7 +195,7 @@
       <div class="sr">
         <div class="form-wrap">
           <div class="form-h">ส่งข้อความถึงเรา</div>
-          <form onsubmit="handleForm(event)" novalidate>
+          <form novalidate>
             <input type="hidden" name="access_key" value="a063232c-e51d-41c4-a416-b3643866c733">
             <input type="hidden" name="subject" value="[TH] New inquiry from TPB Packaging website">
             <input type="hidden" name="from_name" value="[TH] TPB Packaging Website">
@@ -201,26 +203,26 @@
             <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;">
               <div>
                 <label class="fl">ชื่อ-นามสกุล</label>
-                <input class="fi" type="text" name="name" placeholder="ชื่อของคุณ" required>
+                <input class="fi" type="text" name="name" maxlength="100" autocomplete="name" placeholder="ชื่อของคุณ" required>
               </div>
               <div>
                 <label class="fl">บริษัท</label>
-                <input class="fi" type="text" name="company" placeholder="ชื่อบริษัท" required>
+                <input class="fi" type="text" name="company" maxlength="100" autocomplete="organization" placeholder="ชื่อบริษัท" required>
               </div>
             </div>
             <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;">
               <div>
                 <label class="fl">อีเมล</label>
-                <input class="fi" type="email" name="email" placeholder="you@company.com" required>
+                <input class="fi" type="email" name="email" maxlength="254" autocomplete="email" placeholder="you@company.com" required>
               </div>
               <div>
                 <label class="fl">เบอร์โทรศัพท์</label>
-                <input class="fi" type="tel" name="phone" placeholder="+66 ..." required>
+                <input class="fi" type="tel" name="phone" maxlength="30" autocomplete="tel" placeholder="+66 ..." required>
               </div>
             </div>
             <div style="margin-bottom:24px;">
               <label class="fl">ข้อความ</label>
-              <textarea class="fi" rows="4" name="message" placeholder="กรุณาระบุรายละเอียดสินค้า ขนาด จำนวน หรือข้อมูลที่ต้องการสอบถาม" required></textarea>
+              <textarea class="fi" rows="4" name="message" maxlength="2000" placeholder="กรุณาระบุรายละเอียดสินค้า ขนาด จำนวน หรือข้อมูลที่ต้องการสอบถาม" required></textarea>
             </div>
             <button type="submit" class="btn-y" style="width:100%;border:none;cursor:pointer;font-size:.95rem;padding:14px 28px;">
               ส่งข้อความ →
